@@ -1,0 +1,38 @@
+<h1>Bookers</h1>
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Category</th>
+		<th>Body</th>
+		<th></th>
+	</tr>
+	<% @shelves.each do |shelf| %>
+	<tr>
+		<td><span><%= shelf.title %></span></td>
+		<td><span><%= shelf.category %></span></td>
+		<td><span><%= shelf.body %></span></td>
+	    <td><%= link_to "Show",shelf,class: "show_#{shelf.id}" %></td>
+	    <td><%= link_to "Edit",edit_shelf_path(id: shelf.id),class: "edit_#{shelf.id}" %></td>
+		<td><%= link_to "Destroy",shelf, method: :delete,class: "destroy_#{shelf.id}" %></td>
+
+	</tr>
+	<% end %>
+</table>
+
+<h4>新規投稿</h4>
+
+<%= form_for(@shelf) do |f| %>
+
+<h4>Titile</h4>
+<%= f.text_field :title, class: "book_title" %>
+
+<h4>Category</h4>
+<%= f.text_field :category %>
+
+<h4>Body</h4>
+<%= f.text_area :body, class: "book_body" %>
+<br>
+<%= f.submit 'Create Book' %>
+
+<% end %>
+

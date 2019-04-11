@@ -1,0 +1,19 @@
+<% if flash[:notice] %>
+<div class="flash">
+	<%= flash[:notice] %>
+</div>
+<% end %>
+
+<h4>Titile</h4>
+<%= @shelf.title %>
+
+<h4>Category</h4>
+<%= @shelf.category %>
+
+<h4>Body</h4>
+<%= @shelf.body %>
+
+<br>
+
+<%= link_to "edit", edit_shelf_path(@shelf), class: "edit_#{@shelf.id}" %>
+<%= link_to "back", shelves_path, class: "back" %>

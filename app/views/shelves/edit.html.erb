@@ -1,0 +1,14 @@
+<h1>Editing book</h1>
+<%= form_for(@shelf) do |f| %>
+<h4>Title</h4>
+<%= f.text_field :title, class: "book_title" %>
+<h4>Category</h4>
+<%= f.text_field :category %>
+<h4>Body</h4>
+<%= f.text_area :body, class: "book_body" %>
+<br>
+<%= f.submit 'Update Book' %>
+<% end %>
+<br>
+<%= link_to "show", shelf_path(@shelf),class: "show_#{@shelf.id}" %>
+<%= link_to "back", shelves_path, class: "back" %>
